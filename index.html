@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nutrition Analysis</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Nutrition Analysis</h1>
+
+    <section class="card">
+      <h2>Authentication</h2>
+      <div class="forms">
+        <form id="signup-form">
+          <h3>Sign Up</h3>
+          <input id="signup-username" placeholder="Username" required minlength="3" maxlength="50" />
+          <input id="signup-password" placeholder="Password" type="password" required minlength="8" />
+          <button type="submit">Create Account</button>
+        </form>
+
+        <form id="login-form">
+          <h3>Login</h3>
+          <input id="login-username" placeholder="Username" required minlength="3" maxlength="50" />
+          <input id="login-password" placeholder="Password" type="password" required minlength="8" />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <p id="auth-state">Not logged in</p>
+      <button id="logout-btn" class="secondary">Logout</button>
+    </section>
+
+    <section class="card">
+      <h2>Analyze Meal</h2>
+      <form id="analyze-form">
+        <input id="meal-image" type="file" accept="image/png,image/jpeg,image/webp" required />
+        <input id="goal" type="text" placeholder="Goal (e.g. muscle gain)" maxlength="120" />
+        <button type="submit">Analyze</button>
+      </form>
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p id="loading-text">Processing image...</p>
+      </div>
+    </section>
+
+    <section class="card hidden" id="results-card">
+      <h2>Results</h2>
+      <p><strong>Detected Foods:</strong> <span id="foods"></span></p>
+      <div class="macros">
+        <p>Calories: <span id="calories">0</span></p>
+        <p>Protein: <span id="protein">0</span> g</p>
+        <p>Carbs: <span id="carbs">0</span> g</p>
+        <p>Fat: <span id="fat">0</span> g</p>
+      </div>
+      <p><strong>Score:</strong> <span id="score">0</span></p>
+      <p><strong>Streak:</strong> <span id="streak">0</span></p>
+      <p><strong>AI Suggestion:</strong></p>
+      <pre id="suggestion"></pre>
+    </section>
+
+    <section class="card">
+      <h2>Leaderboard</h2>
+      <button id="refresh-leaderboard" class="secondary">Refresh</button>
+      <ol id="leaderboard"></ol>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden" role="alert"></div>
+  <script src="/script.js"></script>
+</body>
+</html>
